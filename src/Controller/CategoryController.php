@@ -10,8 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-
 
 #[Route("/category")]
 class CategoryController extends AbstractController
@@ -30,9 +28,7 @@ class CategoryController extends AbstractController
         );
     }
  
-      /**
-     * @IsGranted("ROLE_MANAGER")
-     */
+
     #[Route("/detail/{id}", name: "category_detail")]
     public function categoryDetail($id, ManagerRegistry $managerRegistry) {
        $category = $managerRegistry->getRepository(Category::class)->find($id);
@@ -67,9 +63,7 @@ class CategoryController extends AbstractController
        return $this->redirectToRoute("category_index");
     }
  
-    /**
-     * @IsGranted("ROLE_ADMIN")
-     */
+
     #[Route("/add", name: "category_add")]
     public function addCategory(Request $request) {
        $category = new Category;
