@@ -9,12 +9,12 @@
     {% for flash in app.session.flashBag.get("Success") %}
          <p class="alert alert-warning">{{ flash }} </p>
     {% endfor %}
-     {% if is_granted('ROLE_ADMIN') %}
-    <a class="btn btn-outline-primary" href="{{ path('product_add')}}">Add new product</a>
-     {% endif %}
+
+    <a class="btn btn-outline-success" href="{{ path('product_add')}}">Add new product</a>
+
     <table class="table table-success mt-3">
         <tr>
-            <th class="text-danger">Product No.</th>
+            <th>Product No.</th>
             <th>Product Name</th>
             <th>Product Color</th>
             <th>Description</th>

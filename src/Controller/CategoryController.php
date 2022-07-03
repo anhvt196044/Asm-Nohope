@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+
 #[Route("/category")]
 class CategoryController extends AbstractController
 {
@@ -27,7 +29,6 @@ class CategoryController extends AbstractController
              ]
         );
     }
- 
 
     #[Route("/detail/{id}", name: "category_detail")]
     public function categoryDetail($id, ManagerRegistry $managerRegistry) {
@@ -41,7 +42,7 @@ class CategoryController extends AbstractController
           'category' => $category
        ]);
     }
- 
+
     #[Route("/delete/{id}", name: "category_delete")]
     public function categoryDelete ($id, CategoryRepository $categoryRepository) {
        $category = $categoryRepository->find($id);
@@ -84,6 +85,7 @@ class CategoryController extends AbstractController
        ]);
     }
  
+
     #[Route("/edit/{id}", name: "category_edit")]
     public function editCategory(Request $request, $id) {
        $category = $this->getDoctrine()->getRepository(Category::class)->find($id);
