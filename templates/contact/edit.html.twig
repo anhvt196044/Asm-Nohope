@@ -1,0 +1,19 @@
+
+{% form_theme contactForm 'bootstrap_5_layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Contact
+{% endblock %}
+
+{% block body %}
+	<div class="container col-md-6 text-center mt-3">
+		<div class="col-lg-10">
+			<h1 class="text text-primary">
+				Contact
+			</h1>
+			{{form_start (contactForm) }}
+            {{form_end (contactForm) }}
+			</div>
+		</div>
+{% endblock %}

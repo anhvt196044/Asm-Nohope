@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container col-md-6 text-center mt-3">
+		<h1 class="text text-success">Contact</h1>
+		{% if contacts == null %}
+			<h4 class="text text-bg-danger mt-4">Course not found !</h4>
+		{% else %}
+			<table class="table table-primary mt-3">
+				<thead>
+					<tr>
+						<th>City</th>
+						<th>Phone number</th>
+						<th>Direction</th>
+						{% if is_granted('ROLE_ADMIN') %}
+							<th>Actions</th>
+						{% endif %}
+					</tr>
+				</thead>
+				<tbody>
+					{% for contact in contacts %}
+						<tr>
+							<td>
+								{{contact.City}}
+							</td>
+							<td>
+								{{contact.Phone}}
+							</td>
+
+							<td>
+								<a class="text-decoration-none" href="{{contact.Direction}}">
+									{{contact.Direction}}
+								</a>
+							</td>
+							{% if is_granted('ROLE_ADMIN') %}
+								<td>
+									<a class="text-decoration-none" href="{{ path('contact_edit', {id: contact.id })}}">
+										EDIT
+									</a>
+									<a class="text-decoration-none" href="{{ path('contact_delete', {id: contact.id })}}" onclick="return confirm('Are you sure to delete this cart ?');">
+										DELETE
+									</a>
+								</td>
+							{% endif %}
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			{% if is_granted('ROLE_ADMIN') %}
+				<a class="text-decoration-none" href="{{ path('contact_add')}}">
+					Add
+				</a>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endblock %}
