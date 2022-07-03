@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}category List{% endblock %}
+
+{% block body %}
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Category Date Of manufacture</th>
+            <th>Category List</th>
+        </tr>
+        <tbody>
+                <tr>
+                    <td scope="row">{{ category.name }}</td>
+                    <td>{{ category.dateOfManufacture | date('d/m/Y') }}</td>
+                    <td> 
+                        {% if category.products != null %}
+                        {% for product in category.products %}
+                        <a href="{{ path('product_detail', {'id': product.id})}}">
+                        {{ product.name }}
+                        </a> 
+                            <br>
+                        {% endfor %}
+                        {% else %}
+                        <i>No product yet</i>
+                        {% endif %}
+           
+            </td>
+                </tr>
+                
+        </tbody>
+    </thead>
+    </table>
+{% endblock %}
