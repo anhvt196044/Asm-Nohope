@@ -1,0 +1,60 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container col-md-5 text-center mt-3">
+    <table class="table table-primary">
+        <tr>
+            <th colspan="2" class="detail">Product Detail</th>
+        </tr>
+        <tr>
+            <th>Produc id</th>
+            <td>{{ product.id }}</td>
+        </tr>
+
+        <tr>
+         <th>category</th>
+         <td>
+         {% if product.category != null %}
+         <a href="{{ path('category_detail', {'id' : product.category.id })}}">
+            {{ product.category.name }}
+         </a> 
+         {% else %}
+             <i>N/A</i>
+         {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>product Name</th>
+            <td>{{ product.name }}</td>
+        </tr>
+        <tr>
+            <th>product color</th>
+            <td>{{ product.color }}</td>
+      </tr>
+        <tr>
+            <th>Product Information</th>
+            <td>{{ product.description }}</td>
+      </tr>
+
+    {# {% set prior = null %}
+      {% if product.price == 1 or product.price == 200 %}
+         {% set prior = "Low" %}
+      {% elseif product.price == 200 or product.price == 1000  %}
+          {% set prior = "Medium" %}
+      {% else %} 
+         {% set prior = "Hight" %}
+      {% endif %} #}
+      <tr>
+         <th>Product Price</th>
+         <td>{{ product.price }}</td>
+      </tr>
+
+    <tr>
+    <th>image</th>    
+        <td><img src="{{ product.image }}" width="100" height="100"></td>
+    </tr>
+
+    </table>
+</div>
+
+{% endblock %}
