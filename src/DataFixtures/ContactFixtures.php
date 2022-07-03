@@ -18,7 +18,7 @@ class ContactFixtures extends Fixture
 
         $contact = new Contact();
         $contact->setCity("Tan Lap");
-        $contact->setPhone("0999999999");
+        $contact->setPhone("0972208243");
         $contact->setDirection("https://goo.gl/maps/BzhjmtQ76P6AiFxr5");
         $manager->persist($contact);
 

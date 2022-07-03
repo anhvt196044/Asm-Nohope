@@ -10,7 +10,7 @@
          <p class="alert alert-warning">{{ flash }} </p>
     {% endfor %}
      {% if is_granted('ROLE_ADMIN') %}
-    <a class="btn btn-outline-primary" href="{{ path('product_add')}}">Add new productr</a>
+    <a class="btn btn-outline-primary" href="{{ path('product_add')}}">Add new product</a>
      {% endif %}
     <table class="table table-hover">
         <tr>
