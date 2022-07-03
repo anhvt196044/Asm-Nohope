@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div class="container-fluid col-md-5 text-center mt-3">
+    <h1 class="text text-bg-success mt-2"> Edit product </h1>
+    <div class="container-md border bg-light mt-2">
+        {{form_start (productForm)}}}
+        <div class="form-group">
+         <label for="name" class="text text-bg-primary">Product Name </label>
+         {{ form_widget (productForm.name, {
+            'attr' : {
+               'class' : 'form-control',
+            }
+         })}}
+        <div class="form-group">
+         <label for="name" class="text text-bg-primary">Product Color </label>
+         {{ form_widget (productForm.color, {
+            'attr' : {
+               'class' : 'form-control',
+            }
+         })}}
+
+        <div class="form-group">
+         <label for="name" class="text text-bg-primary">product Description </label>
+         {{ form_widget (productForm.description, {
+            'attr' : {
+               'class' : 'form-control',
+            }
+         })}}
+               <div class="form-group">
+         <label for="name" class="text text-bg-primary">Price</label>
+         {{ form_widget (productForm.price, {
+            'attr' : {
+               'class' : 'form-control',
+            }
+         })}}
+               <div class="form-group">
+         <label for="name" class="text text-bg-primary">Image  </label>
+         {{ form_widget (productForm.image, {
+            'attr' : {
+               'class' : 'form-control',
+            }
+         })}}
+        <div class="form-group">
+         <label for="name" class="text text-bg-primary">category product </label>
+         {{ form_widget (productForm.category, {
+            'attr' : {
+               'class' : 'form-control',
+            }
+         })}}
+        </div>
+            {{ form_end (productForm)}}
+    </div>
+</div>
+
+{% endblock %}
