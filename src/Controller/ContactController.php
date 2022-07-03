@@ -43,20 +43,22 @@ class ContactController extends AbstractController
    }
 
    #[Route("/add", name: "contact_add")]
-   public function contactAdd(Request $request, ManagerRegistry $managerReigistry) {
-      $contact = new contact;
+   public function addContact(Request $request) {
+      $contact = new Contact;
       $form = $this->createForm(ContactType::class, $contact);
       $form->handleRequest($request);
+      $title = "Add new contact";
       if ($form->isSubmitted() && $form->isValid()) {
-         $manager = $managerReigistry->getManager();
+         $manager = $this->getDoctrine()->getManager();
          $manager->persist($contact);
          $manager->flush();
          $this->addFlash("Success","Add contact succeed !");
          return $this->redirectToRoute("contact_index");
       }
-      return $this->renderForm("contact/save.html.twig",
+      return $this->renderForm("contact/add.html.twig",
       [
          'contactForm' => $form,
+         'title' => $title
       ]);
    }
 

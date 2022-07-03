@@ -1,20 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+	{% if app.user  %} {% endif %}
 	<div class="container col-md-6 text-center mt-3">
 		<h1 class="text text-info">Contact</h1>
 		{% if contacts == null %}
 			<h4 class="text text-bg-info mt-4">Contact not found !</h4>
 		{% else %}
+			<a class="btn btn-warning" href="{{ path('contact_add')}}">Add</a>
 			<table class="table table-info mt-3">
 				<thead>
 					<tr>
 						<th>City</th>
 						<th>Phone Number</th>
 						<th>Direction</th>
-						{% if is_granted('ROLE_ADMIN') %}
-							<th>Actions</th>
-						{% endif %}
+
+						<th>Actions</th>
+
 					</tr>
 				</thead>
 				<tbody>
@@ -32,25 +34,22 @@
 									{{contact.Direction}}
 								</a>
 							</td>
-							{% if is_granted('ROLE_ADMIN') %}
 								<td>
-									<a class="text-decoration-none" href="{{ path('contact_edit', {id: contact.id })}}">
+									<a class="btn btn-info" href="{{ path('contact_edit', {id: contact.id })}}">
 										EDIT
 									</a>
-									<a class="text-decoration-none" href="{{ path('contact_delete', {id: contact.id })}}" onclick="return confirm('Are you sure to delete this contact ?');">
+									<a class="btn btn-danger" href="{{ path('contact_delete', {id: contact.id })}}" onclick="return confirm('Are you sure to delete this contact ?');">
 										DELETE
 									</a>
 								</td>
-							{% endif %}
+								
+
 						</tr>
 					{% endfor %}
 				</tbody>
 			</table>
-			{% if is_granted('ROLE_ADMIN') %}
-				<a class="text-decoration-none" href="{{ path('contact_add')}}">
-					Add
-				</a>
-			{% endif %}
+
+			
 		{% endif %}
 	</div>
 {% endblock %}
