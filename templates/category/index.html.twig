@@ -11,13 +11,13 @@
 {% for message in app.session.flashBag.get("Success") %}
         <p class="alert alert-warning">{{ message }} </p>
 {% endfor %} 
-    <a class="btn btn-outline-primary" href=" {{ path('category_add') }} ">Add Person</a>
+    <a class="btn btn-outline-primary" href=" {{ path('category_add') }} ">Add Category</a>
     <table class="table">
     <thead>
         <tr>
-            <th>Category Id</th>
+            <th>Category ID</th>
             <th>Category Name</th>
-            <th>Date of manufacture</th>
+            <th>Date of Manufacture</th>
             <th>Actions</th>
         </tr>
     </thead>
