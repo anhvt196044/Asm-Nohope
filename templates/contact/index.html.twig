@@ -7,7 +7,7 @@
 		{% if contacts == null %}
 			<h4 class="text text-bg-info mt-4">Contact not found !</h4>
 		{% else %}
-			<a class="btn btn-warning" href="{{ path('contact_add')}}">Add</a>
+			<a class="btn btn-info" href="{{ path('contact_add')}}">Add</a>
 			<table class="table table-info mt-3">
 				<thead>
 					<tr>
@@ -35,7 +35,7 @@
 								</a>
 							</td>
 								<td>
-									<a class="btn btn-info" href="{{ path('contact_edit', {id: contact.id })}}">
+									<a class="btn btn-warning" href="{{ path('contact_edit', {id: contact.id })}}">
 										EDIT
 									</a>
 									<a class="btn btn-danger" href="{{ path('contact_delete', {id: contact.id })}}" onclick="return confirm('Are you sure to delete this contact ?');">
