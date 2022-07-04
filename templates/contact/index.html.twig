@@ -3,18 +3,32 @@
 {% block body %}
 	{% if app.user  %} {% endif %}
 	<div class="container col-md-6 text-center mt-3">
+<<<<<<< HEAD
 		<h1 class="text text-primary">Contact</h1>
 		{% if contacts == null %}
 			<h4 class="text text-bg-info mt-4">Contact not found !</h4>
 		{% else %}
 			<a class="btn btn-primary" href="{{ path('contact_add')}}">Add</a>
+=======
+		<h1 class="text text-info">Contact</h1>
+		{% if contacts == null %}
+			<h4 class="text text-bg-info mt-4">Contact not found !</h4>
+		{% else %}
+			<a class="btn btn-info" href="{{ path('contact_add')}}">Add</a>
+>>>>>>> c2da7063ddcb83df9cbfe4529fd5b479d5148a7d
 			<table class="table table-bordered table-info mt-3">
 				<thead>
 					<tr>
 						<th>City</th>
 						<th>Phone Number</th>
 						<th>Direction</th>
+<<<<<<< HEAD
 						<th>Actions</th>
+=======
+
+						<th>Actions</th>
+
+>>>>>>> c2da7063ddcb83df9cbfe4529fd5b479d5148a7d
 					</tr>
 				</thead>
 				<tbody>
@@ -39,10 +53,20 @@
 										DELETE
 									</a>
 								</td>
+<<<<<<< HEAD
+=======
+								
+
+>>>>>>> c2da7063ddcb83df9cbfe4529fd5b479d5148a7d
 						</tr>
 					{% endfor %}
 				</tbody>
 			</table>
+<<<<<<< HEAD
+=======
+
+			
+>>>>>>> c2da7063ddcb83df9cbfe4529fd5b479d5148a7d
 		{% endif %}
 	</div>
 {% endblock %}
