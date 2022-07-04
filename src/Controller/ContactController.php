@@ -6,7 +6,6 @@ use App\Entity\Contact;
 use App\Form\ContactType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -31,7 +30,7 @@ class ContactController extends AbstractController
    public function contactDelete ($id, ManagerRegistry $managerRegistry) {
       $contact = $managerRegistry->getRepository(Contact::class)->find($id);
       if ($contact == null) {
-         $this->addFlash("Error", "contact not found !");
+         $this->addFlash("Error", "Contact not found !");
       }
       else {
          $manager = $managerRegistry->getManager();
@@ -43,20 +42,22 @@ class ContactController extends AbstractController
    }
 
    #[Route("/add", name: "contact_add")]
-   public function contactAdd(Request $request, ManagerRegistry $managerReigistry) {
-      $contact = new contact;
+   public function addContact(Request $request) {
+      $contact = new Contact;
       $form = $this->createForm(ContactType::class, $contact);
       $form->handleRequest($request);
+      $title = "Add new contact";
       if ($form->isSubmitted() && $form->isValid()) {
-         $manager = $managerReigistry->getManager();
+         $manager = $this->getDoctrine()->getManager();
          $manager->persist($contact);
          $manager->flush();
          $this->addFlash("Success","Add contact succeed !");
          return $this->redirectToRoute("contact_index");
       }
-      return $this->renderForm("contact/save.html.twig",
+      return $this->renderForm("contact/add.html.twig",
       [
          'contactForm' => $form,
+         'title' => $title
       ]);
    }
 

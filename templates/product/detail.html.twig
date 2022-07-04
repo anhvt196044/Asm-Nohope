@@ -7,7 +7,7 @@
             <th colspan="2" class="detail">Product Detail</th>
         </tr>
         <tr>
-            <th>Product ID</th>
+            <th claas"text-danger">Product ID</th>
             <td>{{ product.id }}</td>
         </tr>
 
@@ -36,14 +36,14 @@
             <td>{{ product.description }}</td>
       </tr>
 
-    {# {% set prior = null %}
+    {% set prior = null %}
       {% if product.price == 1 or product.price == 200 %}
          {% set prior = "Low" %}
       {% elseif product.price == 200 or product.price == 1000  %}
           {% set prior = "Medium" %}
       {% else %} 
          {% set prior = "Hight" %}
-      {% endif %} #}
+      {% endif %}
       <tr>
          <th>Product Price</th>
          <td>{{ product.price }}</td>

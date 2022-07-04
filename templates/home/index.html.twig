@@ -3,11 +3,36 @@
 {% block title %} Homepage {% endblock %}
 
 {% block body %}
-{# <div class="container col-md-10 text-center">
-    <h2 class="text text-success mb-3"> Todo Application </h2>
-    {# <img src="{{ asset('images/todo.png')}}" alt="todo"
-    width="500" height="400"> #}
-<div class="container col-md-6 text-center mt-4">
-    <img id="homepage" src="http://thicongnhahangdep.com/upload/sanpham/thietkecuahangthoitrangnam-9272.gif">
-</div> 
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  </div>
+  
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <img id="homepage" src="https://topbrands.vn/wp-content/uploads/2021/05/Shop-thoi-trang-nam-1.jpg" alt="Los Angeles" class="d-block" style="width:100%">
+    </div>
+    <div class="carousel-item">
+    <img id="homepage" src="https://toplist.vn/images/800px/4men-814792.jpg" alt="Chicago" class="d-block" style="width:100%">
+    </div>
+    <div class="carousel-item">
+    <img id="homepage" src="http://thicongnhahangdep.com/upload/sanpham/thietkecuahangthoitrangnam-9272.gif" alt="New York" class="d-block" style="width:100%">
+
+    </div>
+  </div>
+  
+  <!-- Left and right controls/icons -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
 {% endblock %}
